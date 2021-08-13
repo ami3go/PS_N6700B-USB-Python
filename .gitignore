@@ -112,3 +112,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.idea/misc.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/PS_N6700B.iml
+.idea/inspectionProfiles/profiles_settings.xml
