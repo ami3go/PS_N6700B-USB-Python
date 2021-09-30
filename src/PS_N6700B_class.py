@@ -1,6 +1,11 @@
 import sys
 import pyvisa # PyVisa info @ http://PyVisa.readthedocs.io/en/stable/
 import time
+import datetime
+
+def get_time_stamp():
+    time_var = datetime.datetime.now()
+    return(time_var.strftime("%y-%m-%d %H:%M:%S"))
 
 # https://www.keysight.com/upload/cmc_upload/All/34410A_Quick_Reference.pdf
 
@@ -37,7 +42,7 @@ class PS_N6700B_class:
         self.rm = pyvisa.ResourceManager()
         self.app = self.rm.open_resource(SCOPE_VISA_ADDRESS)
         IDN = str(self.app.query("*IDN?"))
-        print(f': Connected to: {IDN}')
+        print(f'{get_time_stamp()}: Connected to: {IDN}')
         ## Set Global Timeout
         ## This can be used wherever, but local timeouts are used for Arming, Triggering, and Finishing the acquisition... Thus it mostly handles IO timeouts
         self.app.timeout = GLOBAL_TOUT
